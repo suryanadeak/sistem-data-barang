@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: limegreen;
+        color: #333;
+        margin-top: 50px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        align-items: center;
+        justify-items: left;
+        width: 25%;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 0px solid #2d2c30;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+        grid-column: span 2;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+        border: 1px solid #4caf50;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        align-self: center;
+        background-color: #fff;
+        margin-top: 20px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Data Barang</h2>
+
+    <form id="barangForm">
+      Kode Barang: <input type="text" id="inputkode" /><br />
+      Nama Barang: <input type="text" id="inputnama" /><br />
+      Harga Barang: <input type="number" id="inputharga" /><br />
+      Satuan:
+      <select id="inputsatuan">
+        <option value="Kilogram">Kilogram</option>
+        <option value="Gram">Gram</option>
+        <option value="Lusin">Lusin</option>
+        <option value="Buah">Buah</option>
+        <option value="Set">Set</option></select
+      ><br />
+      <input type="submit" value="Proses" />
+    </form>
+
+    <table id="hasildatabarang">
+      <tr>
+        <th>Kode Barang</th>
+        <th>Nama Barang</th>
+        <th>Harga Barang</th>
+        <th>Satuan</th>
+      </tr>
+    </table>
+
+    <script>
+      document.getElementById("barangForm").onsubmit = function (event) {
+        event.preventDefault();
+
+        var inputkode = document.getElementById("inputkode").value;
+        var inputnama = document.getElementById("inputnama").value;
+        var inputharga = document.getElementById("inputharga").value;
+        var inputsatuan = document.getElementById("inputsatuan").value;
+
+        var table = document.getElementById("hasildatabarang");
+        var row = table.insertRow(-1);
+        row.insertCell(0).innerHTML = inputnama;
+        row.insertCell(1).innerHTML = inputkode;
+        row.insertCell(2).innerHTML = inputharga;
+        row.insertCell(3).innerHTML = inputsatuan;
+      };
+    </script>
+  </body>
+</html>

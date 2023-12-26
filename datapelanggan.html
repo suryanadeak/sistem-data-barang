@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: lime;
+        color: #333;
+        margin-top: 50px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        align-items: center;
+        justify-items: left;
+        width: 25%;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 0px solid #2d2c30;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+        grid-column: span 2;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+        border: 1px solid #4caf50;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        align-self: center;
+        background-color: #fff;
+        margin-top: 20px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Data Pelanggan</h2>
+
+    <form id="pelangganForm">
+      Kode Pelanggan: <input type="text" id="kodeplg" /><br />
+      Nama Pelanggan: <input type="text" id="namaplg" /><br />
+      Telp: <input type="number" id="telp" /><br />
+      <input type="submit" value="Proses" />
+    </form>
+
+    <table id="hasildataplg">
+      <tr>
+        <th>Kode Pelanggan</th>
+        <th>Nama Pelanggan</th>
+        <th>Telp</th>
+      </tr>
+    </table>
+
+    <script>
+      document.getElementById("pelangganForm").onsubmit = function (event) {
+        event.preventDefault();
+
+        var kodeplg = document.getElementById("kodeplg").value;
+        var namaplg = document.getElementById("namaplg").value;
+        var telp = document.getElementById("telp").value;
+
+        var table = document.getElementById("hasildataplg");
+        var row = table.insertRow(-1);
+        row.insertCell(0).innerHTML = kodeplg;
+        row.insertCell(1).innerHTML = namaplg;
+        row.insertCell(2).innerHTML = telp;
+      };
+    </script>
+  </body>
+</html>
